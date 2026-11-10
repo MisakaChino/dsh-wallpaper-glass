@@ -83,9 +83,16 @@ export function findAsar() {
   return ''
 }
 
-/** Install root (the directory holding the executable) for an app.asar path. */
+/**
+ * Install root (the directory holding the executable) for an app.asar path.
+ * electron-builder layout is <root>/resources/app.asar, so the root is one
+ * level above the archive's directory - not two.
+ */
 export function appRootFromAsar(asar) {
-  return path.resolve(path.dirname(asar), '..', '..')
+  const resources = path.dirname(asar)
+  const root = path.resolve(resources, '..')
+  // tolerate a bare <root>/app.asar layout as well
+  return path.basename(resources).toLowerCase() === 'resources' ? root : resources
 }
 
 /** The executable that owns this archive, or '' when it is not where we expect. */
