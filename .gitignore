@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# patcher output and backups (hundreds of MB, never commit)
+*.bak-*
+app.asar
+app.asar.tmp-*
+*.asar
+
+# runtime logs and diagnostics
+*.log
+logs/
+.tools/
+
+# OS / editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# local secrets
+.env
+.env.*

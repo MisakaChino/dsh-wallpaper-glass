@@ -1,0 +1,66 @@
+{
+  "name": "dsh-wallpaper-glass",
+  "version": "0.1.0",
+  "description": "Live Wallpaper Engine wallpaper behind the DeepSeek Harness GUI, dark glass surfaces and neon accents, with an optional acrylic desktop window.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "tools",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "install-local": "node tools/install.mjs",
+    "uninstall-local": "node tools/install.mjs --remove",
+    "glass:status": "node tools/transparency.mjs status",
+    "glass:on": "node tools/transparency.mjs apply",
+    "glass:off": "node tools/transparency.mjs revert",
+    "check": "node tools/asar-patch.mjs check"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "wallpaper-engine",
+    "wallpaper",
+    "acrylic",
+    "glassmorphism",
+    "electron"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "os": [
+    "win32"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": [
+        "./cordis.patch.yml"
+      ]
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MisakaChino/dsh-wallpaper-glass.git"
+  },
+  "homepage": "https://github.com/MisakaChino/dsh-wallpaper-glass#readme",
+  "bugs": {
+    "url": "https://github.com/MisakaChino/dsh-wallpaper-glass/issues"
+  },
+  "author": "MisakaChino",
+  "license": "MIT"
+}

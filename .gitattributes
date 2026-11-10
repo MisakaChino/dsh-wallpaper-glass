@@ -1,0 +1,12 @@
+# normalize line endings
+* text=auto
+
+# Windows launchers must keep CRLF
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# binaries
+*.png binary
+*.jpg binary
+*.ico binary
+*.asar binary

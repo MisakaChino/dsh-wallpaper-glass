@@ -1,0 +1,10 @@
+# ============================================================================
+# dsh-wallpaper-glass —— 壁纸 × 界面美化
+# ============================================================================
+# 一行 bundle：host 半侧（lib/index.js，扫描 Wallpaper Engine / 提供媒体流）
+# + client 半侧（lib/client.js，背景层与毛玻璃美化）。
+# 主行 id 必须与包名一致，否则设置页与插件详情找不到条目。
+- insert:
+    - id: dsh-wallpaper-glass
+      name: dsh-wallpaper-glass
+      config: {}
