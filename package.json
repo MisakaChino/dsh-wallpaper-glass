@@ -23,7 +23,8 @@
     "glass:status": "node tools/transparency.mjs status",
     "glass:on": "node tools/transparency.mjs apply",
     "glass:off": "node tools/transparency.mjs revert",
-    "check": "node tools/asar-patch.mjs check"
+    "check": "node tools/asar-patch.mjs check",
+    "doctor": "node tools/doctor.mjs"
   },
   "keywords": [
     "deepseek-harness",

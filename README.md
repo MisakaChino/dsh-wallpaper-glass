@@ -153,6 +153,17 @@ dsh-wallpaper-glass/
 
 ## 常见问题
 
+**装完之后什么都没有？**
+
+先在仓库目录跑自检，它会逐项告诉你卡在哪一步：
+
+```powershell
+node tools/doctor.mjs          # 人类可读
+node tools/doctor.mjs --json   # 贴 issue 用
+```
+
+它检查：Node 版本 → DSH 数据目录 → profile 是否写入 → 依赖是否指向当前仓库 → 插件文件与语法 → Wallpaper Engine 是否找到 → 有多少张壁纸浏览器能渲染 → 透明补丁状态。全程只读，不改任何文件。
+
 **改了代码没生效？**
 DSH 桌面版没有绑定 `Ctrl+R`。在「设置 → 插件」里把本插件关掉再打开即可热重载（宿主端代码会重读，页面也会重新拉 bundle）。
 
