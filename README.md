@@ -190,6 +190,16 @@ node tools/install.mjs --remove   # 从 profile 移除
 
 然后删除仓库目录，并（可选）删掉 `%USERPROFILE%\.dsh\wallpaper-glass\`。如果打过透明补丁，先 `npm run glass:off`。
 
+## 安全边界
+
+路由挂在 DSH 的 webServer 上，**每个请求先问一次 `ctx.connection.requestRejection(req)`**：这一层同时做 Host/Origin 校验（挡 DNS rebinding 与跨站调用）和浏览器登录凭据校验。所以：
+
+- 已登录的 DSH 界面能正常读写；
+- 你浏览器里**随便哪个网页**调 `http://127.0.0.1:<port>/wallpaper-glass/api/...` 会拿到 `403`；
+- 取不到这个服务时**默认拒绝**（fail-closed），不会退化成不设防。
+
+除此之外还保留两道更"笨"的防线：只接受回环地址；媒体接口只服务服务端登记过的 id，不接受前端传来的任意路径。
+
 ## 隐私
 
 插件不发起任何外部网络请求。它读取的数据只有：Wallpaper Engine 的本地配置与壁纸文件、DSH 自己的 profile 配置。媒体通过本机 `127.0.0.1` 的 DSH 端口提供给页面。
