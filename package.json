@@ -1,6 +1,6 @@
 {
   "name": "dsh-wallpaper-glass",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Live Wallpaper Engine wallpaper behind the DeepSeek Harness GUI, dark glass surfaces and neon accents, with an optional acrylic desktop window.",
   "type": "module",
   "main": "./lib/index.js",
